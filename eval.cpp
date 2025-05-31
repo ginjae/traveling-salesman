@@ -1,7 +1,9 @@
+#include "utils/parse_tsp.h"
+// #include "utils/distance_matrix.h"
+
 #include <iostream>
 #include <unordered_map>
-
-#include "utils/tsp_parser.h"
+#include <vector>
 
 using namespace std;
 
@@ -25,9 +27,13 @@ int main(int argc, char* argv[]) {
     }
 
 
-    auto nodes = TSPParser::parse(DATASET_PATHS[dataset_name]);
+    auto nodes = parse_tsp(DATASET_PATHS[dataset_name]);
     // for (const auto& node : nodes)
     //     cout << node.id << ": " << node.x << ", " << node.y << endl;
+
+    // DistanceMatrix dm(nodes);
+    // cout << dm.get_distance(0, 1) << endl;
+    // cout << dm.get_distance(1, 0) << endl;
 
     return 0;
 }

@@ -1,0 +1,29 @@
+#ifndef TSP_SOLVER_H
+#define TSP_SOLVER_H
+
+#include "../utils/distance_matrix.h"
+
+#include <vector>
+
+class TSP_Solver {
+public:
+    std::vector<int> solution;
+
+    /*
+     * Saves the approximate solution of TSP.
+     * Input:       Distance Matrix
+     * Solution:    TSP tour as a sequence of node indices
+                    (starting and ending at node 0)
+    */
+    virtual void solve(const std::vector<Node>& nodes) = 0;
+
+    /* Returns the total length of the solution */
+    double get_total_length(const std::vector<Node>& nodes) {
+        double total = 0.0;
+        for (size_t i = 1; i < this->solution.size(); i++)
+            total += euclidean_distance(nodes[this->solution[i - 1]], nodes[this->solution[i]]);
+        return total;
+    }
+};
+
+#endif

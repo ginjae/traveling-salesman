@@ -25,8 +25,10 @@ private:
     int n;
     std::vector<double> data;
 public:
+    DistanceMatrix() {}
     DistanceMatrix(const std::vector<Node>& nodes);
     double get_distance(int i, int j) const;
+    int size() const { return n; }
 };
 
 #endif

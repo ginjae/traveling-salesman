@@ -1,7 +1,7 @@
 #ifndef TSP_SOLVER_H
 #define TSP_SOLVER_H
 
-#include "../utils/distance_matrix.h"
+#include "../utils/node.h"
 
 #include <vector>
 

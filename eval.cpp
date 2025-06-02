@@ -1,5 +1,4 @@
 #include "utils/parse_tsp.h"
-#include "utils/distance_matrix.h"
 #include "algorithms/mst_based.h"
 
 #include <iostream>
@@ -27,18 +26,10 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-
     vector<Node> nodes = parse_tsp(DATASET_PATHS[dataset_name]);
     MST_Based mst_based;
     mst_based.solve(nodes);
     cout << mst_based.get_total_length(nodes) << endl;
-
-    // for (const auto& node : nodes)
-    //     cout << node.id << ": " << node.x << ", " << node.y << endl;
-
-    // DistanceMatrix dm(nodes);
-    // cout << dm.get_distance(0, 1) << endl;
-    // cout << dm.get_distance(1, 0) << endl;
 
     return 0;
 }

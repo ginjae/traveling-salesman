@@ -2,6 +2,6 @@
 
 using namespace std;
 
-void Held_Karp::solve(const vector<Node>& nodes) {
+void HeldKarp::solve(const vector<Node>& nodes) {
 
 }

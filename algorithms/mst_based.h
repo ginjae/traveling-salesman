@@ -3,7 +3,7 @@
 
 #include "tsp_solver.h"
 
-class MST_Based : public TSP_Solver {
+class MSTBased : public TSPSolver {
 public:
     void solve(const std::vector<Node>& nodes) override;
     std::vector<std::pair<int, int>> mst_edges;

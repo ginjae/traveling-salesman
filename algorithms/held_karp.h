@@ -3,7 +3,7 @@
 
 #include "tsp_solver.h"
 
-class Held_Karp : public TSP_Solver {
+class HeldKarp : public TSPSolver {
 public:
     void solve(const std::vector<Node>& nodes) override;
 };

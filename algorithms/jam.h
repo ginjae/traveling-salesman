@@ -3,7 +3,7 @@
 
 #include "tsp_solver.h"
 
-class Jam : public TSP_Solver {
+class Jam : public TSPSolver {
 public:
     void solve(const std::vector<Node>& nodes) override;
 };

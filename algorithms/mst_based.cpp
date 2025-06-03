@@ -6,7 +6,7 @@
 
 using namespace std;
 
-void MST_Based::solve(const vector<Node>& nodes) {
+void MSTBased::solve(const vector<Node>& nodes) {
     size_t n = nodes.size();
     // Step 1: Build MST using Prim's algorithm
     this->prim_jarnik_mst(nodes);
@@ -42,7 +42,7 @@ void MST_Based::solve(const vector<Node>& nodes) {
     this->solution.push_back(this->solution[0]);
 }
 
-void MST_Based::prim_jarnik_mst(const vector<Node>& nodes) {
+void MSTBased::prim_jarnik_mst(const vector<Node>& nodes) {
     size_t n = nodes.size();
     vector<bool> in_mst(n, false);
     vector<double> min_distance(n, numeric_limits<double>::max());

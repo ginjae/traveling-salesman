@@ -5,7 +5,7 @@
 
 #include <vector>
 
-class TSP_Solver {
+class TSPSolver {
 public:
     std::vector<int> solution;
 
@@ -18,8 +18,8 @@ public:
     virtual void solve(const std::vector<Node>& nodes) = 0;
 
     /* Returns the total length of the solution */
-    double get_total_length(const std::vector<Node>& nodes) {
-        double total = 0.0;
+    int get_total_length(const std::vector<Node>& nodes) {
+        int total = 0;
         for (size_t i = 1; i < this->solution.size(); i++)
             total += euclidean_distance(nodes[this->solution[i - 1]], nodes[this->solution[i]]);
         return total;

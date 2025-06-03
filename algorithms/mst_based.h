@@ -3,10 +3,6 @@
 
 #include "tsp_solver.h"
 
-#include <vector>
-#include <limits>
-#include <queue>
-
 class MST_Based : public TSP_Solver {
 public:
     void solve(const std::vector<Node>& nodes) override;

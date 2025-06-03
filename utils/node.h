@@ -9,10 +9,10 @@ public:
     double x, y;
 };
 
-inline double euclidean_distance(const Node& a, const Node& b) {
+inline int euclidean_distance(const Node& a, const Node& b) {
     double dx = a.x - b.x;
     double dy = a.y - b.y;
-    return std::sqrt(dx * dx + dy * dy);
+    return (int) (std::sqrt(dx * dx + dy * dy) + 0.5);
 }
 
 #endif

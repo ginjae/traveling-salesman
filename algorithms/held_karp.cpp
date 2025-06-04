@@ -4,16 +4,18 @@
 
 using namespace std;
 
-#include <iostream>
 void HeldKarp::solve(const vector<Node>& nodes) {
     size_t n = nodes.size();
-    map<pair<set<int>, int>, int> parent;
+    map<pair<set<int>, int>, int> parent;   // For obtaining path
+
+    // Initialize base cases
     for (int k = 0; k < n; k++) {
         set<int> base_set = { 0, k };
         dp[{ base_set, k }] = euclidean_distance(nodes[0], nodes[k]);
         parent[{ base_set, k }] = 0;
     }
     
+    // Compute dp
     for (int s = 3; s <= n; s++) {
         vector<set<int>> combinations;
         set<int> cur = { 0 };
@@ -46,6 +48,7 @@ void HeldKarp::solve(const vector<Node>& nodes) {
     set<int> full_set;
     for (int i = 0; i < n; i++) full_set.insert(i);
     
+    // Find the distance of optimal solution and the last node of it
     int min_total_distance = INT_MAX;
     int last_node = -1;
     for (int k = 1; k < n; k++) {
@@ -54,6 +57,7 @@ void HeldKarp::solve(const vector<Node>& nodes) {
         last_node = k;
     }
 
+    // Backtrack to store the optimal path
     set<int> cur_set = full_set;
     int cur_node = last_node;
     this->solution = vector<int>(n);

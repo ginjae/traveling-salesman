@@ -8,15 +8,18 @@ using namespace std;
 
 void MSTBased::solve(const vector<Node>& nodes) {
     size_t n = nodes.size();
-    // Step 1: Build MST using Prim's algorithm
+
+    // Build MST using Prim's algorithm
     this->prim_jarnik_mst(nodes);
-    // Step 2: Build the MST as an adjacency list
+
+    // Build the MST as an adjacency list
     vector<vector<int>> mst(n);
     for (const auto& [u, v] : this->mst_edges) {
         mst[u].push_back(v);
         mst[v].push_back(u);
     }
-    // Step 3: Pre-order traversal to generate TSP tour
+
+    // Pre-order traversal to generate TSP tour
     vector<bool> visited(n);
     stack<int> s;
     s.push(0);
@@ -51,7 +54,7 @@ void MSTBased::prim_jarnik_mst(const vector<Node>& nodes) {
     // (distance, node index)
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<>> pq;
 
-    // Starts from node index 0
+    // Start from node index 0
     min_distance[0] = 0;
     pq.emplace(0, 0);
 

@@ -29,13 +29,13 @@ int main(int argc, char* argv[]) {
 
     string algorithm_name = argv[1];
 
-    TSPSolver* tsp_solver;
+    unique_ptr<TSPSolver> tsp_solver;
     if (algorithm_name == "mst_based") {
-        tsp_solver = new MSTBased;
+        tsp_solver = make_unique<MSTBased>();
     } else if (algorithm_name == "held_karp") {
-        tsp_solver = new HeldKarp;
+        tsp_solver = make_unique<HeldKarp>();
     } else if (algorithm_name == "jam") {
-        tsp_solver = new Jam;
+        tsp_solver = make_unique<Jam>();
     } else {
         cout << "Error: Algorithm '" << algorithm_name << "' not found" << endl;
         cout << "Available algorithms: mst_based, held_karp, jam" << endl;
@@ -77,8 +77,6 @@ int main(int argc, char* argv[]) {
 
     cout << "Length: " << fixed << tsp_solver->get_total_distance(nodes) << endl;
     cout << "Duration (s): " << fixed << duration.count() << endl;
-
-    delete tsp_solver;
 
     return 0;
 }

@@ -1,6 +1,6 @@
 #include "mst_based.h"
 
-#include <limits>
+#include <climits>
 #include <queue>
 #include <stack>
 
@@ -45,15 +45,15 @@ void MSTBased::solve(const vector<Node>& nodes) {
 void MSTBased::prim_jarnik_mst(const vector<Node>& nodes) {
     size_t n = nodes.size();
     vector<bool> in_mst(n, false);
-    vector<double> min_distance(n, numeric_limits<double>::max());
+    vector<int> min_distance(n, INT_MAX);
     vector<int> parent(n, -1);
 
     // (distance, node index)
-    priority_queue<pair<double, int>, vector<pair<double, int>>, greater<>> pq;
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<>> pq;
 
     // Starts from node index 0
-    min_distance[0] = 0.0;
-    pq.emplace(0.0, 0);
+    min_distance[0] = 0;
+    pq.emplace(0, 0);
 
     while (!pq.empty()) {
         int u = pq.top().second;
@@ -66,7 +66,7 @@ void MSTBased::prim_jarnik_mst(const vector<Node>& nodes) {
 
         for (int v = 0; v < n; v++) {
             if (!in_mst[v]) {
-                double distance = euclidean_distance(nodes[u], nodes[v]);
+                int distance = euclidean_distance(nodes[u], nodes[v]);
                 if (distance < min_distance[v]) {
                     min_distance[v] = distance;
                     parent[v] = u;

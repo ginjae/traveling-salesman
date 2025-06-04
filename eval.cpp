@@ -5,7 +5,7 @@
 
 #include <iostream>
 #include <iomanip>
-#include <unordered_map>
+#include <map>
 #include <vector>
 #include <chrono>
 #include <filesystem>
@@ -13,7 +13,7 @@
 
 using namespace std;
 
-unordered_map<string, string> DATASET_PATHS = {
+map<string, string> DATASET_PATHS = {
     {"jam20",           "datasets/jam20.tsp"},
     {"a280",            "datasets/a280.tsp"},
     {"xql662",          "datasets/xql662.tsp"},
@@ -23,33 +23,35 @@ unordered_map<string, string> DATASET_PATHS = {
 
 int main(int argc, char* argv[]) {
     if (argc != 3) {
-        cout << "Usage: " << argv[0] << " <tsp_file> <algorithm>" << endl;
+        cout << "Usage: " << argv[0] << " <algorithm> <tsp_file>" << endl;
         return 1;
     }
 
-    string dataset_name = argv[1];
-    if (DATASET_PATHS.find(dataset_name) == DATASET_PATHS.end()) {
-        cout << "Error: Dataset '" << dataset_name << "' not found" << endl;
-        cout << "Available datasets: jam20, a280, xql662, kz9976, mona-lisa100K" << endl;
-        return 1;
-    }
-
-    string dataset_path = DATASET_PATHS[dataset_name];
-    string algorithm_name = argv[2];
+    string algorithm_name = argv[1];
 
     TSPSolver* tsp_solver;
-    if (algorithm_name == "mst-based") {
+    if (algorithm_name == "mst_based") {
         tsp_solver = new MSTBased;
-    } else if (algorithm_name == "held-karp") {
+    } else if (algorithm_name == "held_karp") {
         tsp_solver = new HeldKarp;
     } else if (algorithm_name == "jam") {
         tsp_solver = new Jam;
     } else {
         cout << "Error: Algorithm '" << algorithm_name << "' not found" << endl;
-        cout << "Available algorithms: mst-baed, held-karp, jam" << endl;
+        cout << "Available algorithms: mst_based, held_karp, jam" << endl;
         return 1;
     }
- 
+
+    string dataset_name = argv[2];
+    if (DATASET_PATHS.find(dataset_name) == DATASET_PATHS.end()) {
+        cout << "Error: Dataset '" << dataset_name << "' not found" << endl;
+        cout << "Available datasets: ";
+        for (const auto& [name, path] : DATASET_PATHS)
+            cout << name << " ";
+        cout << endl;
+        return 1;
+    }
+    string dataset_path = DATASET_PATHS[dataset_name];
     
     vector<Node> nodes = parse_tsp(dataset_path);
     auto start = chrono::system_clock::now();
@@ -57,11 +59,11 @@ int main(int argc, char* argv[]) {
     auto end = chrono::system_clock::now();
     chrono::duration<double> duration = end - start;
 
-    string result_path = "results/" + dataset_name + "_" + algorithm_name + ".txt";
-    filesystem::create_directories("results");
+    string result_path = "results/" + dataset_name + "/" + algorithm_name + ".txt";
+    filesystem::create_directories("results/" + dataset_name);
 
     ofstream file(result_path);
-    file << "Length: " << fixed << tsp_solver->get_total_length(nodes) << endl;
+    file << "Length: " << fixed << tsp_solver->get_total_distance(nodes) << endl;
     file << "Duration (s): " << fixed << duration.count() << endl;
     file << endl;
     file << "[ ";
@@ -73,7 +75,7 @@ int main(int argc, char* argv[]) {
     file << " ]";
     
 
-    cout << "Length: " << fixed << tsp_solver->get_total_length(nodes) << endl;
+    cout << "Length: " << fixed << tsp_solver->get_total_distance(nodes) << endl;
     cout << "Duration (s): " << fixed << duration.count() << endl;
 
     delete tsp_solver;

@@ -8,6 +8,7 @@ import psutil
 ALGORITHMS = [
     "mst_based",
     "held_karp",
+    "held_karp_bitmask",
     "nearest_neighbor",
     "greedy_edge",
     "jam"

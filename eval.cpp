@@ -36,17 +36,19 @@ int main(int argc, char* argv[]) {
         tsp_solver = make_unique<MSTBased>();
     } else if (algorithm_name == "held_karp") {
         tsp_solver = make_unique<HeldKarp>();
+    } else if (algorithm_name == "held_karp_bitmask") {
+        tsp_solver = make_unique<HeldKarpBitmask>();
     } else if (algorithm_name == "nearest_neighbor") {
         tsp_solver = make_unique<NearestNeighbor>();
-    // } else if (algorithm_name == "randomized_nearest_neighbor") {
-    //     tsp_solver = make_unique<RandomizedNearestNeighbor>();
+    } else if (algorithm_name == "randomized_nearest_neighbor") {
+        tsp_solver = make_unique<RandomizedNearestNeighbor>();
     } else if (algorithm_name == "greedy_edge") {
         tsp_solver = make_unique<GreedyEdge>();
     } else if (algorithm_name == "jam") {
         tsp_solver = make_unique<Jam>();
     } else {
         cout << "Error: Algorithm '" << algorithm_name << "' not found" << endl;
-        cout << "Available algorithms: mst_based held_karp nearest_neighbor greedy_edge jam" << endl;
+        cout << "Available algorithms: mst_based held_karp held_karp_bitmask nearest_neighbor randomized_nearest_neighbor greedy_edge jam" << endl;
         return 1;
     }
 

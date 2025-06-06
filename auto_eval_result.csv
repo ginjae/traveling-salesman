@@ -1,22 +1,26 @@
 dataset,algorithm,length,duration_s,peak_memory_kb,status
-jam20,mst_based,1414,1e-05,384,Success
-jam20,held_karp,1008,105.629573,6229296,Success
-jam20,nearest_neighbor,1022,2e-06,128,Success
-jam20,greedy_edge,1023,1.3e-05,256,Success
-jam20,jam,1023,1.4e-05,128,Success
-a280,mst_based,3791,0.000806,128,Success
-a280,nearest_neighbor,3157,0.000147,128,Success
-a280,greedy_edge,2940,0.002766,128,Success
-a280,jam,2940,0.002743,128,Success
-xql662,mst_based,3691,0.004453,256,Success
-xql662,nearest_neighbor,3124,0.000666,128,Success
-xql662,greedy_edge,2977,0.016794,128,Success
-xql662,jam,2977,0.016768,128,Success
-kz9976,mst_based,1455573,0.656183,26896,Success
-kz9976,nearest_neighbor,1358249,0.190427,4096,Success
-kz9976,greedy_edge,1254627,5.044334,742212,Success
-kz9976,jam,1254627,7.898066,587204,Success
-mona-lisa100K,mst_based,8390648,41.315238,269972,Success
-mona-lisa100K,nearest_neighbor,6846598,24.977442,6744,Success
-mona-lisa100K,greedy_edge,,,6297856,Killed by signal 6
-mona-lisa100K,jam,6591603,22.421754,49664,Success
+jam20,mst_based,1414,1.1e-05,384,Success
+jam20,held_karp,1008,111.372413,6229268,Success
+jam20,nearest_neighbor,1022,4e-06,640,Success
+jam20,greedy_edge,1023,2.4e-05,384,Success
+jam20,jam,1023,4.8e-05,512,Success
+a280,mst_based,3791,0.00087,3200,Success
+a280,held_karp,,,7300732,Killed by signal 9
+a280,nearest_neighbor,3157,0.00013,3584,Success
+a280,greedy_edge,2940,0.00301,128,Success
+a280,jam,3154,0.001265,128,Success
+xql662,mst_based,3691,0.004401,256,Success
+xql662,held_karp,,,7378820,Killed by signal 9
+xql662,nearest_neighbor,3124,0.000612,512,Success
+xql662,greedy_edge,2977,0.019246,128,Success
+xql662,jam,3093,0.005642,128,Success
+kz9976,mst_based,1455573,0.81372,26768,Success
+kz9976,held_karp,,,7372180,Killed by signal 9
+kz9976,nearest_neighbor,1358249,0.153168,3968,Success
+kz9976,greedy_edge,1254627,6.560678,610884,Success
+kz9976,jam,1320994,0.229975,7620,Success
+mona-lisa100K,mst_based,8390648,54.368968,269840,Success
+mona-lisa100K,held_karp,,,7338028,Killed by signal 9
+mona-lisa100K,nearest_neighbor,6846598,31.93346,6616,Success
+mona-lisa100K,greedy_edge,,,6297472,Killed by signal 6
+mona-lisa100K,jam,6591603,18.169647,49536,Success

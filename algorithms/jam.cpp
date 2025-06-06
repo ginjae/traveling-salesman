@@ -17,7 +17,6 @@ struct EdgeCompare {
     }
 };
 
-#include <iostream>
 void Jam::solve_with_topk(const vector<Node>& nodes, int k) {
     int n = nodes.size();
     vector<Edge> edges;
@@ -46,10 +45,6 @@ void Jam::solve_with_topk(const vector<Node>& nodes, int k) {
         edges[i] = pq.top();
         pq.pop();
     }
-
-    // for (auto e : edges)
-    //     cout << e.u << ", " << e.v << ": " << e.dist << endl;
-    cout << edges.size() << endl;
 
     vector<int> degree(n, 0);
     UnionFind uf(n);

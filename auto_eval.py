@@ -145,8 +145,8 @@ def main():
     # Iterate through every dataset–algorithm combination
     for dataset in DATASETS:
         for algorithm in ALGORITHMS:
-            if algorithm == "held_karp" and dataset != "jam20":
-                continue
+            # if algorithm == "held_karp" and dataset != "jam20":
+            #     continue
             timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             print(f"[{timestamp}] Running: algorithm='{algorithm}', dataset='{dataset}' ...", end=" ", flush=True)
 
@@ -162,10 +162,10 @@ def main():
                 print("Done")
             else:
                 print("Failed")
-            print(f"  Length      : {result['length']}")
-            print(f"  Duration    : {result['duration_s']} (s)")
-            print(f"  Peak Memory : {result['peak_memory_kb']} (KB)")
-            print(f"  Status      : {result['status']}")
+            print(f"  Length            : {result['length']}")
+            print(f"  Duration (s)      : {result['duration_s']} (s)")
+            print(f"  Peak Memory (KB)  : {result['peak_memory_kb']} (KB)")
+            print(f"  Status            : {result['status']}")
             if result["stderr"]:
                 print(f"  stderr      : {result['stderr']}")
             print()

@@ -23,10 +23,10 @@ void GreedyEdge::solve(const vector<Node>& nodes) {
     vector<pair<int, int>> tour_edges;
 
     // Select minimum distance edge that makes no cycle
-    for(auto& e : edges) {
-        if(degree[e.u] >= 2 || degree[e.v] >= 2)
+    for (auto& e : edges) {
+        if (degree[e.u] >= 2 || degree[e.v] >= 2)
             continue;
-        if(tour_edges.size() == n - 1 || uf.find_parent(e.u) != uf.find_parent(e.v)) {
+        if (tour_edges.size() == n - 1 || uf.find_parent(e.u) != uf.find_parent(e.v)) {
             tour_edges.push_back({e.u, e.v});
             uf.union_parent(e.u, e.v);
             degree[e.u]++;
@@ -35,8 +35,8 @@ void GreedyEdge::solve(const vector<Node>& nodes) {
     }
 
     // Form a cycle
-    for(auto& e : edges) {
-        if(degree[e.u] == 1 && degree[e.v] == 1 && uf.find_parent(e.u) == uf.find_parent(e.v)) {
+    for (auto& e : edges) {
+        if (degree[e.u] == 1 && degree[e.v] == 1 && uf.find_parent(e.u) == uf.find_parent(e.v)) {
             tour_edges.push_back({e.u, e.v});
             break;
         }
@@ -44,7 +44,7 @@ void GreedyEdge::solve(const vector<Node>& nodes) {
 
     // Construct Path
     vector<set<int>> graph(n);
-    for(auto& e : tour_edges) {
+    for (auto& e : tour_edges) {
         graph[e.first].insert(e.second);
         graph[e.second].insert(e.first);
     }
@@ -54,7 +54,7 @@ void GreedyEdge::solve(const vector<Node>& nodes) {
     this->solution.push_back(cur);
     visited[cur] = true;
 
-    while(this->solution.size() < n) {
+    while (this->solution.size() < n) {
         int next = *graph[cur].begin();
         graph[cur].erase(next);
         graph[next].erase(cur);

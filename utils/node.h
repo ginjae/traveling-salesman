@@ -8,6 +8,20 @@ struct Node {
     double x, y;
 };
 
+struct Edge {
+    int u, v;
+    int dist;
+
+    bool operator<(const Edge& other) const {
+        if (this->dist == other.dist) {
+            if (this->u == other.u)
+                return this->v > other.v;
+            return this->u > other.u;
+        }
+        return this->dist < other.dist;
+    }
+};
+
 inline int euclidean_distance(const Node& a, const Node& b) {
     double dx = a.x - b.x;
     double dy = a.y - b.y;

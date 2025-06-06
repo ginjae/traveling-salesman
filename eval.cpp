@@ -2,6 +2,7 @@
 #include "algorithms/mst_based.h"
 #include "algorithms/held_karp.h"
 #include "algorithms/nearest_neighbor.h"
+#include "algorithms/greedy.h"
 #include "algorithms/jam.h"
 
 #include <iostream>
@@ -39,6 +40,8 @@ int main(int argc, char* argv[]) {
         tsp_solver = make_unique<NearestNeighbor>();
     } else if (algorithm_name == "randomized_nearest_neighbor") {
         tsp_solver = make_unique<RandomizedNearestNeighbor>();
+    } else if (algorithm_name == "greedy") {
+        tsp_solver = make_unique<Greedy>();
     } else if (algorithm_name == "jam") {
         tsp_solver = make_unique<Jam>();
     } else {
@@ -82,6 +85,14 @@ int main(int argc, char* argv[]) {
 
     cout << "Length: " << fixed << tsp_solver->get_total_distance(nodes) << endl;
     cout << "Duration (s): " << fixed << duration.count() << endl;
+    cout << endl;
+    cout << "[ ";
+    for (int i = 0; i < tsp_solver->solution.size(); i++) {
+        cout << tsp_solver->solution[i] + 1;
+        if (i != tsp_solver->solution.size() - 1)
+            cout << ", ";
+    }
+    cout << " ]";
 
     return 0;
 }

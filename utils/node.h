@@ -3,8 +3,7 @@
 
 #include <cmath>
 
-class Node {
-public:
+struct Node {
     int id;
     double x, y;
 };

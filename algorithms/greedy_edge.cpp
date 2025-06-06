@@ -1,42 +1,12 @@
-#include "greedy.h"
+#include "greedy_edge.h"
+#include "union_find.h"
 
 #include <algorithm>
 #include <set>
 
 using namespace std;
 
-class UnionFind {
-private:
-    vector<int> parent, rank;
-public:
-    UnionFind(int n) : parent(n), rank(n, 0) {
-        for(int i = 0; i < n; i++) parent[i] = i;
-    }
-
-    int find_parent(int x) {
-        if(parent[x] != x)
-            parent[x] = find_parent(parent[x]);
-        return parent[x];
-    }
-
-    void union_parent(int x, int y) {
-        int root_x = find_parent(x);
-        int root_y = find_parent(y);
-        if(root_x == root_y)
-            return;
-        if(rank[root_x] < rank[root_y])
-            parent[root_x] = root_y;
-        else if(rank[root_x] > rank[root_y])
-            parent[root_y] = root_x;
-        else {
-            parent[root_y] = root_x;
-            rank[root_x]++;
-        }
-        return;
-    }
-};
-
-void Greedy::solve(const vector<Node>& nodes) {
+void GreedyEdge::solve(const vector<Node>& nodes) {
     int n = nodes.size();
     vector<Edge> edges;
     

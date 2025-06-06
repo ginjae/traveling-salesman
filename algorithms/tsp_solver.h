@@ -1,7 +1,7 @@
 #ifndef TSP_SOLVER_H
 #define TSP_SOLVER_H
 
-#include "../utils/node.h"
+#include "node.h"
 
 #include <vector>
 

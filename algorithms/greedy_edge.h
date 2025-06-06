@@ -12,7 +12,7 @@ struct Edge {
     }
 };
 
-class Greedy : public TSPSolver {
+class GreedyEdge : public TSPSolver {
 public:
     void solve(const std::vector<Node>& nodes) override;
 };

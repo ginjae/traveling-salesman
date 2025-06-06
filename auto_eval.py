@@ -10,7 +10,7 @@ ALGORITHMS = [
     "held_karp",
     "nearest_neighbor",
     "randomized_nearest_neighbor",
-    "greedy",
+    "greedy_edge",
     "jam"
 ]
 

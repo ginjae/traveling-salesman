@@ -2,7 +2,7 @@
 #include "algorithms/mst_based.h"
 #include "algorithms/held_karp.h"
 #include "algorithms/nearest_neighbor.h"
-#include "algorithms/greedy.h"
+#include "algorithms/greedy_edge.h"
 #include "algorithms/jam.h"
 
 #include <iostream>
@@ -40,8 +40,8 @@ int main(int argc, char* argv[]) {
         tsp_solver = make_unique<NearestNeighbor>();
     } else if (algorithm_name == "randomized_nearest_neighbor") {
         tsp_solver = make_unique<RandomizedNearestNeighbor>();
-    } else if (algorithm_name == "greedy") {
-        tsp_solver = make_unique<Greedy>();
+    } else if (algorithm_name == "greedy_edge") {
+        tsp_solver = make_unique<GreedyEdge>();
     } else if (algorithm_name == "jam") {
         tsp_solver = make_unique<Jam>();
     } else {

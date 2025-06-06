@@ -11,7 +11,7 @@ public:
 
     /*
      * Saves the approximate solution of TSP.
-     * Input:       Distance Matrix
+     * Input:       Vector of nodes
      * Solution:    TSP tour as a sequence of node indices
                     (starting and ending at node 0)
     */

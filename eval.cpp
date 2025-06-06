@@ -1,6 +1,7 @@
 #include "utils/parse_tsp.h"
 #include "algorithms/mst_based.h"
 #include "algorithms/held_karp.h"
+#include "algorithms/nearest_neighbor.h"
 #include "algorithms/jam.h"
 
 #include <iostream>
@@ -34,6 +35,10 @@ int main(int argc, char* argv[]) {
         tsp_solver = make_unique<MSTBased>();
     } else if (algorithm_name == "held_karp") {
         tsp_solver = make_unique<HeldKarp>();
+    } else if (algorithm_name == "nearest_neighbor") {
+        tsp_solver = make_unique<NearestNeighbor>();
+    } else if (algorithm_name == "randomized_nearest_neighbor") {
+        tsp_solver = make_unique<RandomizedNearestNeighbor>();
     } else if (algorithm_name == "jam") {
         tsp_solver = make_unique<Jam>();
     } else {

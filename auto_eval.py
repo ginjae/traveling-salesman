@@ -9,7 +9,6 @@ ALGORITHMS = [
     "mst_based",
     "held_karp",
     "nearest_neighbor",
-    "randomized_nearest_neighbor",
     "greedy_edge",
     "jam"
 ]
@@ -101,7 +100,7 @@ def run_evaluation(algorithm: str, dataset: str) -> dict:
     for line in stdout_text.splitlines():
         line = line.strip()
         if line.startswith("Length:"):
-            # Example format: "Length: 12345.67"
+            # Example format: "Length: 12345"
             parts = line.split(":", 1)
             if len(parts) == 2:
                 try:
@@ -146,6 +145,8 @@ def main():
     # Iterate through every dataset–algorithm combination
     for dataset in DATASETS:
         for algorithm in ALGORITHMS:
+            if algorithm == "held_karp" and dataset != "jam20":
+                continue
             timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             print(f"[{timestamp}] Running: algorithm='{algorithm}', dataset='{dataset}' ...", end=" ", flush=True)
 

@@ -22,9 +22,12 @@ def generate_heart_shape_nodes(num_points=20, center_x=150, center_y=150, scale=
         y = 13 * math.cos(t) - 5 * math.cos(2*t) - 2 * math.cos(3*t) - math.cos(4*t)
         xi = int(center_x + scale * x)
         yi = int(center_y + scale * y)
-        coords.append((i + 1, xi, yi))
+        coords.append((xi, yi))
+    
     random.shuffle(coords)
-    return coords
+
+    result = [(i + 1, coords[i][0], coords[i][1]) for i in range(num_points)]
+    return result
 
 def main():
     tsp_name = "jam20"

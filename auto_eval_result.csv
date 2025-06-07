@@ -1,26 +1,31 @@
 dataset,algorithm,length,duration_s,peak_memory_kb,status
-jam20,mst_based,1414,1.1e-05,384,Success
-jam20,held_karp,1008,111.372413,6229268,Success
-jam20,nearest_neighbor,1022,4e-06,640,Success
-jam20,greedy_edge,1023,2.4e-05,384,Success
-jam20,jam,1023,4.8e-05,512,Success
-a280,mst_based,3791,0.00087,3200,Success
-a280,held_karp,,,7300732,Killed by signal 9
-a280,nearest_neighbor,3157,0.00013,3584,Success
-a280,greedy_edge,2940,0.00301,128,Success
-a280,jam,3154,0.001265,128,Success
-xql662,mst_based,3691,0.004401,256,Success
-xql662,held_karp,,,7378820,Killed by signal 9
-xql662,nearest_neighbor,3124,0.000612,512,Success
-xql662,greedy_edge,2977,0.019246,128,Success
-xql662,jam,3093,0.005642,128,Success
-kz9976,mst_based,1455573,0.81372,26768,Success
-kz9976,held_karp,,,7372180,Killed by signal 9
-kz9976,nearest_neighbor,1358249,0.153168,3968,Success
-kz9976,greedy_edge,1254627,6.560678,610884,Success
-kz9976,jam,1320994,0.229975,7620,Success
-mona-lisa100K,mst_based,8390648,54.368968,269840,Success
-mona-lisa100K,held_karp,,,7338028,Killed by signal 9
-mona-lisa100K,nearest_neighbor,6846598,31.93346,6616,Success
-mona-lisa100K,greedy_edge,,,6297472,Killed by signal 6
-mona-lisa100K,jam,6591603,18.169647,49536,Success
+jam20,mst_based,1358,1.2e-05,256,Success
+jam20,held_karp,1008,108.273789,6229528,Success
+jam20,held_karp_bitmask,1008,0.422048,249216,Success
+jam20,nearest_neighbor,1023,3e-06,128,Success
+jam20,greedy_edge,1022,1.4e-05,128,Success
+jam20,jam,1022,2.2e-05,128,Success
+a280,mst_based,3791,0.000754,128,Success
+a280,held_karp,,,6468680,Killed by signal 6
+a280,held_karp_bitmask,,,6232960,Killed by signal 6
+a280,nearest_neighbor,3157,0.000211,128,Success
+a280,greedy_edge,2940,0.002677,128,Success
+a280,jam,3154,0.000637,128,Success
+xql662,mst_based,3691,0.004513,128,Success
+xql662,held_karp,,,6100228,Killed by signal 6
+xql662,held_karp_bitmask,,,6456832,Killed by signal 6
+xql662,nearest_neighbor,3124,0.000659,128,Success
+xql662,greedy_edge,2977,0.017083,128,Success
+xql662,jam,3093,0.002518,256,Success
+kz9976,mst_based,1455573,0.725799,26892,Success
+kz9976,held_karp,,,6299668,Killed by signal 6
+kz9976,held_karp_bitmask,,,6089600,Killed by signal 6
+kz9976,nearest_neighbor,1358249,0.19234,4096,Success
+kz9976,greedy_edge,1254627,4.888047,739008,Success
+kz9976,jam,1320994,0.233221,6468,Success
+mona-lisa100K,mst_based,8390648,39.045299,269952,Success
+mona-lisa100K,held_karp,,,6338344,Killed by signal 6
+mona-lisa100K,held_karp_bitmask,,,128,Killed by signal 11
+mona-lisa100K,nearest_neighbor,6846598,28.103539,6740,Success
+mona-lisa100K,greedy_edge,,,3151884,Killed by signal 6
+mona-lisa100K,jam,6591603,21.284041,49536,Success

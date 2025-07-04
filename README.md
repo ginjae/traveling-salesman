@@ -1,18 +1,18 @@
-## CSE331 Assignment #2
+# 📌 CSE331 Assignment #2
 20211061 Jaemin Kim
 <br>
 <br>
 
-# Solving the Traveling Salesman Problem
+# 🗺️ Solving the Traveling Salesman Problem
 
-## Quick Start
+## 🚀 Quick Start
 ```bash
 make
 python3 auto_eval.py
 ```
 <br>
 
-## Algorithms
+## 🧠 Algorithms
 ### 1. MST-Based 2-Approximation Algorithm
 ### 2. Held-Karp Algorithm
 ### 3. Node-Greedy Algorithm (Nearest Neighbor)
@@ -21,7 +21,12 @@ python3 auto_eval.py
 
 <br>
 
-## Experiments
+## 📄 Paper
+[View pdf](https://unistackr0-my.sharepoint.com/:b:/g/personal/jm611_unist_ac_kr/EfY3arcyGj5Pp2UPgQoVFT4BUryAKzRDnb9bz4jxDa1kzg?e=SVdBtx)
+
+<br>
+
+## 📊 Experiments
 ### Datasets
 
 - jam20 (jam20.tsp) created for this experiment
